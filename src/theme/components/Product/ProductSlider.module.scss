@@ -1,0 +1,30 @@
+.productSlider {
+  max-width: 339.66px;
+  width: 100%;
+  display: flex;
+  gap: 16px;
+
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    img {
+      width: 49.66px;
+      height: 58px;
+      cursor: pointer;
+      background: #ffffff;
+      border-radius: 13px;
+    }
+  }
+  .mainImg {
+    width: 258px;
+    height: 318px;
+    img {
+      width: 100%;
+      height: 100%;
+      padding: 8px;
+      background: #ffffff;
+      border-radius: 13px;
+    }
+  }
+}

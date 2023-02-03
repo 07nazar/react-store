@@ -1,0 +1,39 @@
+.productInfo {
+  max-width: 541.34px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .info {
+    h2 {
+      font-weight: 700;
+      font-size: 61.04px;
+      line-height: 74px;
+      color: #1a1f16;
+    }
+    h4 {
+      font-weight: 500;
+      font-size: 31.25px;
+      line-height: 38px;
+      color: rgba(26, 31, 22, 0.5);
+    }
+    span {
+    }
+    b {
+      font-weight: 500;
+      font-size: 31.25px;
+      line-height: 38px;
+      color: #1a1f16;
+    }
+    p {
+      font-size: 20px;
+      line-height: 24px;
+      color: #1a1f16;
+    }
+  }
+
+  .button {
+    align-self: end;
+  }
+}

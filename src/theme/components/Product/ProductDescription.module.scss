@@ -1,0 +1,20 @@
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 32px;
+  gap: 8px;
+  h4 {
+    font-weight: 500;
+    font-size: 31.25px;
+    line-height: 38px;
+    color: #1a1f16;
+  }
+  p {
+    text-align: justify;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    color: #60695c;
+  }
+}

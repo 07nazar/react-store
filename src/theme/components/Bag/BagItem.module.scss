@@ -1,0 +1,60 @@
+.bagItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  background: #ffffff;
+  border-radius: 21px;
+  padding: 16px 24px;
+
+  .itemImg {
+    width: 203.54px;
+    height: 254px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 8px;
+    h3 {
+      font-size: 31.25px;
+      line-height: 38px;
+      color: #1a1f16;
+    }
+    h5 {
+      font-size: 20px;
+      line-height: 24px;
+      color: #60695c;
+    }
+    p {
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: -0.02em;
+      color: #1a1f16;
+    }
+    .rating {
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: -0.02em;
+      color: #12805d;
+    }
+    .action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .price {
+        font-size: 20px;
+        line-height: 24px;
+        color: #1a1f16;
+      }
+      .count {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 20px;
+        line-height: 24px;
+        color: #1a1f16;
+      }
+    }
+  }
+}

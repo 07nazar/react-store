@@ -1,0 +1,17 @@
+.button {
+  display: flex;
+  align-items: center;
+  padding: 8px 24px;
+  gap: 8px;
+
+  background: none;
+  border: 1px solid #1a1f16;
+  border-radius: 14px;
+
+  span {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #1a1f16;
+  }
+}

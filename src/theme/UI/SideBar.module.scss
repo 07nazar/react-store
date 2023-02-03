@@ -1,0 +1,71 @@
+.sideBar {
+  width: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: all 0.5s ease;
+
+  margin-right: 16px;
+  padding: 8px;
+  gap: 32px;
+
+  background: #ffffff;
+  border-radius: 8px;
+
+  .burger,
+  a {
+    width: 40px;
+    height: 40px;
+    .linkText {
+      display: none;
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    gap: 32px;
+
+    .linkItem {
+    }
+  }
+
+  .burger,
+  .linkItem {
+    padding: 10px;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .logOut {
+    background: #e5252c;
+    border-radius: 10px;
+  }
+}
+
+.activeSideBar {
+  width: 140px;
+  .wrapper {
+    width: 100%;
+  }
+  .burger,
+  .linkItem {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    .linkText {
+      display: flex;
+    }
+  }
+  .logOut {
+    background: #e5252c;
+    border-radius: 10px;
+  }
+}
