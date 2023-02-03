@@ -1,0 +1,93 @@
+.addNewCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 15px;
+
+  .title {
+    padding: 8px 0 8px 8px;
+    font-weight: 400;
+    font-size: 31.25px;
+    line-height: 38px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #1a1f16;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .name,
+    .cardNumber,
+    .cardDate,
+    .cardCVC {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 8px;
+      gap: 8px;
+
+      .inputTitle {
+        padding: 0 8px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: -0.02em;
+        color: rgba(26, 31, 22, 0.5);
+      }
+
+      input {
+        width: 100%;
+        padding: 16px 24px;
+        border: none;
+        background: #ffffff;
+        box-shadow: 0px 4px 16px rgba(26, 31, 22, 0.15);
+        border-radius: 13px;
+      }
+    }
+  }
+
+  .cardData {
+    display: inline-flex;
+    align-items: center;
+    gap: 32px;
+
+    .cardDate {
+      width: 186px;
+    }
+    .cardCVC {
+      width: 141px;
+    }
+  }
+
+  .save {
+    display: flex;
+    align-items: center;
+    padding: 16px 8px;
+    gap: 8px;
+  }
+
+  .addBtn {
+    margin: 16px;
+    border: none;
+    width: 100%;
+    padding: 8px 0;
+
+    background: #1a1f16;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #ffffff;
+  }
+
+  .bottomBox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}

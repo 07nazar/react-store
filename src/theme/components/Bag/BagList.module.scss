@@ -1,0 +1,17 @@
+.bagList {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 34px;
+  h2 {
+    display: inline-block;
+    font-size: 48.83px;
+    line-height: 59px;
+    color: #1a1f16;
+  }
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}

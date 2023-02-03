@@ -1,0 +1,12 @@
+.product {
+  padding-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  .top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid rgba(26, 31, 22, 0.5);
+    padding-bottom: 24px;
+  }
+}

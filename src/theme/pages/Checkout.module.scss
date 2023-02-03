@@ -1,0 +1,41 @@
+.checkout {
+  padding-top: 56px;
+  margin-bottom: 56px;
+  max-width: 1216px;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  .wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      flex: 0 1 871px;
+      padding-right: 20px;
+      height: 100vh;
+      overflow: scroll;
+
+      gap: 24px;
+    }
+  }
+}
+
+.main::-webkit-scrollbar {
+  width: 4px; /* ширина всей полосы прокрутки */
+}
+
+.main::-webkit-scrollbar-track {
+  background: none; /* цвет зоны отслеживания */
+}
+
+.main::-webkit-scrollbar-thumb {
+  background-color: rgba(26, 31, 22, 0.5); /* цвет бегунка */
+  border-radius: 20px; /* округлось бегунка */
+  border: 4px solid rgba(26, 31, 22, 0.5); /* отступ вокруг бегунка */
+}

@@ -1,0 +1,36 @@
+.shippingCard {
+  max-width: 871px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 16px;
+
+  background: #ffffff;
+  border-radius: 13px;
+  h3 {
+    font-size: 31.25px;
+    line-height: 38px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #1a1f16;
+  }
+  .infoBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      p {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        color: #1a1f16;
+      }
+    }
+  }
+}
