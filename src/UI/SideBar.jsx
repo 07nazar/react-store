@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import styles from '../theme/UI/SideBar.module.scss'
 
@@ -9,34 +9,42 @@ import bag from '../assets/icons/bag.svg'
 import logOut from '../assets/icons/logOut.svg'
 
 function SideBar() {
-  const [isActive, setActive] = useState(false)
+  const [isOpen, setOpen] = useState(false)
 
-  const burgerIcon = isActive ? close : burger
+  const burgerIcon = isOpen ? close : burger
+
   const toogleBurgerMenu = () => {
-    setActive(!isActive)
+    setOpen(!isOpen)
   }
 
+  const closeBurgerMenu = () => {
+    setOpen(false)
+  }
+
+  const setActiveLink = ({ isActive }) =>
+    isActive ? `${styles.linkItem} ${styles.activeLink}` : `${styles.linkItem}`
+
   return (
-    <div className={`${styles.sideBar} ${isActive && styles.activeSideBar}`}>
+    <div className={`${styles.sideBar} ${isOpen && styles.activeSideBar}`}>
       <button className={styles.burger} onClick={toogleBurgerMenu}>
         <img src={burgerIcon} alt="burger" />
       </button>
 
       <nav className={styles.wrapper}>
-        <Link to="/" className={styles.linkItem}>
+        <NavLink to="/" className={setActiveLink} onClick={closeBurgerMenu}>
           <img src={store} alt="" />
           <span className={styles.linkText}>Store</span>
-        </Link>
-        <Link to="/bag" className={styles.linkItem}>
+        </NavLink>
+        <NavLink to="/bag" className={setActiveLink} onClick={closeBurgerMenu}>
           <img src={bag} alt="" />
           <span className={styles.linkText}>Bag</span>
-        </Link>
+        </NavLink>
       </nav>
 
-      <Link to="/logout" className={`${styles.linkItem} ${styles.logOut}`}>
+      <NavLink to="/logout" className={styles.logOut} onClick={closeBurgerMenu}>
         <img src={logOut} alt="" />
         <span className={styles.linkText}>Logout</span>
-      </Link>
+      </NavLink>
     </div>
   )
 }

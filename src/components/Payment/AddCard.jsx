@@ -1,8 +1,14 @@
+import { useNavigate } from 'react-router-dom'
 import styles from '../../theme/components/Payment/AddCard.module.scss'
 
 function AddCard() {
+  const navigate = useNavigate()
+  const goBack = e => {
+    e.preventDefault()
+    navigate(-1)
+  }
   return (
-    <form className={styles.addNewCard}>
+    <div className={styles.addNewCard}>
       <h3 className={styles.title}>Add a new Card</h3>
 
       <form className={styles.form}>
@@ -33,12 +39,14 @@ function AddCard() {
         <button className={styles.addBtn}>Add Payment Method</button>
 
         <div className={styles.bottomBox}>
-          <button className={styles.Back}>Back</button>
+          <button className={styles.Back} onClick={goBack}>
+            Back
+          </button>
 
           <p className={styles.connection}>Secure Connection</p>
         </div>
       </form>
-    </form>
+    </div>
   )
 }
 

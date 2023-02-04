@@ -1,5 +1,5 @@
+import { Link } from 'react-router-dom'
 import Button from '../../UI/Button'
-
 import styles from '../../theme/components/Checkout/ShippingCard.module.scss'
 
 const userInfo = {
@@ -20,7 +20,9 @@ function ShippingCard() {
           <p>{userInfo.city}</p>
           <p>{userInfo.coutry}</p>
         </div>
-        <Button img={false} text="Change" />
+        <Link to="/address">
+          <Button img={false} text="Change" />
+        </Link>
       </div>
     </div>
   )
