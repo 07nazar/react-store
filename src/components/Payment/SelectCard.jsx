@@ -11,7 +11,7 @@ function SelectCard() {
       <h3 className={styles.title}>Select a Card</h3>
       <div className={styles.cardItems}>
         {cards.map(({ id, text }) => (
-          <p key={id} className={styles.cardItem}>
+          <p key={id + text} className={styles.cardItem}>
             {text}
           </p>
         ))}
