@@ -1,16 +1,15 @@
 import styles from '../../theme/components/Product/ProductSlider.module.scss'
-import logo from '../../assets/item.png'
 
-function ProductSlider() {
+function ProductSlider({ img }) {
   return (
     <div className={styles.productSlider}>
       <div className={styles.gallery}>
-        <img src={logo} alt="" />
-        <img src={logo} alt="" />
-        <img src={logo} alt="" />
+        <img src={img} alt="" />
+        <img src={img} alt="" />
+        <img src={img} alt="" />
       </div>
       <div className={styles.mainImg}>
-        <img src={logo} alt="" />
+        <img src={img} alt="" />
       </div>
     </div>
   )

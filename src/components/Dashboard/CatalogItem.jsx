@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import styles from '../../theme/components/Dashboard/CatalogItem.module.scss'
 import addIcon from '../../assets/icons/addBag.svg'
 import close from '../../assets/icons/close.svg'
@@ -17,7 +18,9 @@ function CatalogItem({ product, onClickAddToBag, onClickRemoveFromBag }) {
 
   return (
     <div className={styles.catalogItem}>
-      <img src={img} alt="" className={styles.itemImg} />
+      <Link to={`/product/${id}`}>
+        <img src={img} alt="" className={styles.itemImg} />
+      </Link>
       <h4>{title}</h4>
       <h5>{model}</h5>
       <div className={styles.action}>
