@@ -1,25 +1,28 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-debugger */
-import { useEffect, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { fetchProducts } from '../../store/products/asyncActions'
 import Catalog from '../../components/Dashboard/Catalog'
 import Search from '../../components/Dashboard/Seach'
-import { fetchProducts } from '../../store/products/asyncActions'
+
 import styles from '../../theme/pages/Home.module.scss'
 
 function Home() {
   const { products } = useSelector(state => state.products)
+  const [searchValue, setSearchValue] = useState('')
+
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (products.length === 0) {
-      dispatch(fetchProducts())
-    }
-  }, [dispatch, products])
+    dispatch(fetchProducts({}))
+  }, [dispatch])
+
+  useEffect(() => {
+    dispatch(fetchProducts({ sortBy: 'title', value: searchValue }))
+  }, [dispatch, searchValue])
 
   return (
     <div className={styles.home}>
-      <Search />
+      <Search searchValue={searchValue} setSearchValue={setSearchValue} />
       <Catalog products={products} />
     </div>
   )

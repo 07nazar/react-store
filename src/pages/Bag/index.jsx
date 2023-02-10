@@ -4,11 +4,11 @@ import BagList from '../../components/Bag/BagList'
 import styles from '../../theme/pages/Bag.module.scss'
 
 function Bag() {
-  const { productsInBag } = useSelector(state => state.bag)
+  const items = useSelector(state => state.bag.productsInBag)
 
   return (
     <div className={styles.bag}>
-      <BagList items={productsInBag} />
+      <BagList items={items} />
     </div>
   )
 }
