@@ -1,45 +1,38 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getBagItems, getTotalSum, setItemToLS } from '../../utils/helpers'
 
 const initialState = {
-  productsInBag: getBagItems(),
-  totalOrder: getTotalSum(),
+  productsInBag: [],
+  totalOrder: [],
 }
 
 const bagSlice = createSlice({
   name: 'bag',
   initialState,
   reducers: {
-    addProductToBag(state, action) {
-      state.productsInBag.push({ ...action.payload, count: 1 })
-      setItemToLS(state.productsInBag, 'bag')
+    addItemToBag(state, action) {
+      const product = { ...action.payload }
+      state.productsInBag.push(product)
+      localStorage.setItem('bag', JSON.stringify(state.productsInBag))
     },
-
-    removeProductFromBag(state, action) {
-      state.productsInBag = state.productsInBag.filter(item => item.id !== action.payload.id)
-      setItemToLS(state.productsInBag, 'bag')
+    removeFromBag(state, action) {
+      const productsWithOut = state.productsInBag.filter(item => item.id !== action.payload.id)
+      state.productsInBag = productsWithOut
+      localStorage.setItem('bag', JSON.stringify(state.productsInBag))
     },
-
-    setProductCount(state, action) {
-      const { count, id } = action.payload
-      if (count < 1) {
-        const products = state.productsInBag.filter(item => item.id !== id)
-        state.productsInBag = products
+    increaseCount(state, action) {
+      state.productsInBag.find(item => item.id === action.payload).count += 1
+    },
+    decreaseCount(state, action) {
+      const product = state.productsInBag.find(item => item.id === action.payload)
+      if (product.count > 1) {
+        product.count -= 1
+      } else {
+        state.productsInBag = state.productsInBag.filter(item => item.id !== action.payload)
       }
-      if (count >= 1) {
-        const product = state.productsInBag.find(item => item.id === id)
-        product.count = count
-      }
-      setItemToLS(state.productsInBag, 'bag')
-    },
-
-    setTotalOrder(state) {
-      state.totalOrder = getTotalSum()
     },
   },
 })
 
-export const { addProductToBag, removeProductFromBag, setProductCount, setTotalOrder } =
-  bagSlice.actions
+export const { addItemToBag, removeFromBag, increaseCount, decreaseCount } = bagSlice.actions
 
 export default bagSlice.reducer

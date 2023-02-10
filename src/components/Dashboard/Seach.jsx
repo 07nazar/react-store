@@ -1,11 +1,10 @@
-import { useState } from 'react'
 import styles from '../../theme/components/Dashboard/Search.module.scss'
 
-function Search() {
-  const [value, setValue] = useState('')
+function Search(props) {
+  const { searchValue, setSearchValue } = props
 
   const onChangeHandler = text => {
-    setValue(text)
+    setSearchValue(text)
   }
 
   return (
@@ -14,7 +13,7 @@ function Search() {
       <input
         className={styles.searchInput}
         type="text"
-        value={value}
+        value={searchValue}
         onChange={e => onChangeHandler(e.target.value)}
         placeholder="Apple Watch, Samsung S21, Macbook Pro, ..."
       />

@@ -1,20 +1,20 @@
 import { useDispatch } from 'react-redux'
+import { changeSelectedStatus } from '../../store/products/slice'
+import { addItemToBag, removeFromBag } from '../../store/bag/slice'
 import CatalogItem from './CatalogItem'
 import styles from '../../theme/components/Dashboard/Catalog.module.scss'
-import { changeSelectedStatus } from '../../store/products/slice'
-import { addProductToBag, removeProductFromBag } from '../../store/bag/slice'
 
 function Catalog({ products }) {
   const dispatch = useDispatch()
 
   const onClickAddToBag = product => {
     dispatch(changeSelectedStatus({ id: product.id, selected: !product.selected }))
-    dispatch(addProductToBag({ ...product }))
+    dispatch(addItemToBag({ ...product, count: 1 }))
   }
 
   const onClickRemoveFromBag = product => {
     dispatch(changeSelectedStatus({ id: product.id, selected: !product.selected }))
-    dispatch(removeProductFromBag({ id: product.id }))
+    dispatch(removeFromBag({ id: product.id }))
   }
 
   return (

@@ -1,11 +1,16 @@
+import { useSelector } from 'react-redux'
 import styles from '../../theme/components/Dashboard/CatalogItem.module.scss'
 import addIcon from '../../assets/icons/addBag.svg'
 import close from '../../assets/icons/close.svg'
 
 function CatalogItem({ product, onClickAddToBag, onClickRemoveFromBag }) {
-  const { img, title, model, price, selected } = product
+  const { id, img, title, model, price, selected } = product
 
-  const bagIcon = selected ? close : addIcon
+  const products = useSelector(state => state.bag.productsInBag)
+
+  const isSelected = products.find(item => item.id === id)
+
+  const bagIcon = isSelected ? close : addIcon
 
   const buttonClickHandler = () =>
     !selected ? onClickAddToBag(product) : onClickRemoveFromBag(product)

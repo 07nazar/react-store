@@ -6,6 +6,7 @@ import bag from '../assets/icons/bag.svg'
 
 function BagArea() {
   const { productsInBag } = useSelector(state => state.bag)
+
   const location = useLocation()
 
   const renderBtn = () => {
@@ -23,7 +24,7 @@ function BagArea() {
     }
   }
 
-  const renderItems = productsInBag.map(item => <img src={item.img} alt="" key={item.id} />)
+  const renderItems = productsInBag?.map(item => <img src={item.img} alt="" key={item.id} />)
 
   const renderNoItems = <h4>Your bag is clear, choose someone</h4>
 

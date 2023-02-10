@@ -1,23 +1,18 @@
-/* eslint-disable no-unused-vars */
 import { useDispatch } from 'react-redux'
-import { useState } from 'react'
-import styles from '../../theme/components/Bag/BagItem.module.scss'
+import { decreaseCount, increaseCount } from '../../store/bag/slice'
 import plus from '../../assets/icons/plus.svg'
 import minus from '../../assets/icons/minus.svg'
+import styles from '../../theme/components/Bag/BagItem.module.scss'
 
-function BagItem({ item, onChangeQuantity }) {
+function BagItem({ item }) {
   const { id, img, title, color, smallDesc, rating, price, count } = item
   const dispatch = useDispatch()
 
-  const [quantity, setQuantity] = useState(count)
-
-  const onPlusQuantityHandler = () => {
-    setQuantity(quantity + 1)
-    onChangeQuantity(id, quantity + 1)
+  const plusClickHandler = () => {
+    dispatch(increaseCount(id))
   }
-  const onMinusQuantityHandler = () => {
-    setQuantity(quantity - 1)
-    onChangeQuantity(id, quantity - 1)
+  const minusClickHandler = () => {
+    dispatch(decreaseCount(id))
   }
 
   return (
@@ -32,15 +27,15 @@ function BagItem({ item, onChangeQuantity }) {
 
         <div className={styles.action}>
           <span className={styles.price}>
-            $ {price} x {quantity}
+            $ {price} x {count}
           </span>
 
           <span className={styles.count}>
-            <button onClick={onMinusQuantityHandler}>
+            <button onClick={minusClickHandler}>
               <img src={minus} alt="" />
             </button>
-            {quantity}
-            <button onClick={onPlusQuantityHandler}>
+            {count}
+            <button onClick={plusClickHandler}>
               <img src={plus} alt="" />
             </button>
           </span>
